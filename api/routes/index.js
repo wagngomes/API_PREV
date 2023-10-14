@@ -4,6 +4,8 @@ const fornecedores = require('./fornecedoresRoute')
 const produtos = require('./produtosRoute')
 const centros = require('./centrosRoute')
 const auth = require('./authRoute')
+const registros = require('./registrosRoute')
+const requisicoes = require('./requisicoesRoute')
 
 module.exports = app => {
 
@@ -13,7 +15,9 @@ module.exports = app => {
         usuarios,
         fornecedores,
         produtos,
-        centros
+        centros,
+        registros,
+        requisicoes
     )
 }
 
