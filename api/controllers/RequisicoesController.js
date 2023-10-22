@@ -20,8 +20,24 @@ class RequisicoesController{
         try{
 
             const todasAsRequisicoes = await database.Requisicoes.findAll({where:{
-                solicitante_email: email
+                solicitante_email: email,
+                tipo: 'Transferência'
             }})
+            return res.status(200).json(todasAsRequisicoes)
+
+        }catch (error) {
+            return res.status(500).json(error.message)
+        }
+    }
+    static async listaTodasAsRequisicoesDePrevisao(req, res){
+        const { email } = req.params
+
+        try{
+
+            const todasAsRequisicoes = await database.Requisicoes.findAll({where:{
+                solicitante_email: email,
+                tipo: 'Previsão'
+            }}) 
             return res.status(200).json(todasAsRequisicoes)
 
         }catch (error) {
@@ -37,6 +53,20 @@ class RequisicoesController{
                 planejador: usuario
             }})
             return res.status(200).json(todasAsRequisicoesPorPlanejador)
+
+        }catch (error) {
+            return res.status(500).json(error.message)
+        }
+    }
+    static async listaTodasAsRequisicoesPorId(req, res){
+        const { id } = req.params
+
+        try{
+
+            const requisicaoPorId = await database.Requisicoes.findAll({where:{
+                id: id
+            }})
+            return res.status(200).json(requisicaoPorId)
 
         }catch (error) {
             return res.status(500).json(error.message)
