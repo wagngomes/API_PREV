@@ -6,6 +6,7 @@ const centros = require('./centrosRoute')
 const auth = require('./authRoute')
 const registros = require('./registrosRoute')
 const requisicoes = require('./requisicoesRoute')
+const mail = require('./mailRoute')
 
 module.exports = app => {
 
@@ -17,7 +18,8 @@ module.exports = app => {
         produtos,
         centros,
         registros,
-        requisicoes
+        requisicoes,
+        mail
     )
 }
 
